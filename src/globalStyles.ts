@@ -25,3 +25,10 @@ export const GlobalStyles = createGlobalStyle`
     }
   }
 `;
+
+export const RootWrapper = styled.div`
+  background-color: inherit;
+  max-width: 100vw;
+  min-height: 100vh;
+  overflow: hidden;
+`;
