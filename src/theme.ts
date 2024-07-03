@@ -5,4 +5,13 @@ export const lightTheme: DefaultTheme = {
   secondary: "#45a049",
 };
 
-export const darkTheme: DefaultTheme = {};
+export const darkTheme: DefaultTheme = {
+  mainBackgroundColor: "#2B2B2B",
+  mainTextColor: "#fff",
+  inputBorderColor: "#858584",
+  inputTextColor: "#2B2B2B",
+  inputBackgroundColor: "#fff",
+  inputPlaceholderColor: "#bdbdbd",
+  buttonBgColor: "#A259FF",
+  buttonTextColor: "#fff",
+};

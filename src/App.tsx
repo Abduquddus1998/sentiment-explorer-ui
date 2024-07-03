@@ -10,12 +10,12 @@ import { darkTheme, lightTheme } from "./theme";
 import Register from "./Components/Register";
 
 function App() {
-  const [theme, setTheme] = useState("light");
+  const [theme, setTheme] = useState("dark");
 
   return (
     <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
+      <GlobalStyles />
       <RootWrapper>
-        <GlobalStyles />
         <Routes>
           <Route path="/" element={<Simple />}>
             <Route index element={<Login />} />
