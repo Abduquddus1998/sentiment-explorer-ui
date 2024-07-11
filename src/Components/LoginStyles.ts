@@ -65,7 +65,7 @@ export const InputWrapper = styled.div`
 `;
 
 interface SubmitButtonProps {
-  isLogin: boolean;
+  isLogin?: boolean;
   marginTop?: string;
 }
 
@@ -90,4 +90,12 @@ export const SubmitButton = styled.button<SubmitButtonProps>`
     props.isLogin ? props.theme.buttonBgColor : "#fff"};
   color: ${(props) =>
     props.isLogin ? props.theme.buttonTextColor : props.theme.inputTextColor};
+`;
+
+export const ErrorMessage = styled.div<{ align?: string }>`
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 22px;
+  text-align: ${(props) => props.align || "center"};
+  color: #ea2853ff;
 `;
