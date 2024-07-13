@@ -7,11 +7,13 @@ import {
   InputWrapper,
   LoginForm,
   LoginWrapper,
+  Spinner,
   SubmitButton,
 } from "./LoginStyles";
 import { EmailIcon, LockIcon } from "./Icons";
 
 import { useLogin } from "../hooks/auth";
+
 import { saveCredentials } from "../utils/auth";
 
 export default function Login() {
@@ -66,7 +68,7 @@ export default function Login() {
         </InputWrapper>
         {error && <ErrorMessage>{error}</ErrorMessage>}
         <SubmitButton isLogin={true} marginTop="30px" onClick={onLogin}>
-          Login
+          {mutation.isPending ? <Spinner /> : <>Login</>}
         </SubmitButton>
         <SubmitButton
           isLogin={false}

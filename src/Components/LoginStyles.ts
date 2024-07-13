@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 export const LoginWrapper = styled.div`
   width: 100%;
@@ -90,6 +90,11 @@ export const SubmitButton = styled.button<SubmitButtonProps>`
     props.isLogin ? props.theme.buttonBgColor : "#fff"};
   color: ${(props) =>
     props.isLogin ? props.theme.buttonTextColor : props.theme.inputTextColor};
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: unset;
+  }
 `;
 
 export const ErrorMessage = styled.div<{ align?: string }>`
@@ -98,4 +103,18 @@ export const ErrorMessage = styled.div<{ align?: string }>`
   line-height: 22px;
   text-align: ${(props) => props.align || "center"};
   color: #ea2853ff;
+`;
+
+const spin = keyframes`
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+`;
+
+export const Spinner = styled.div`
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top: 2px solid #fff;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: ${spin} 1s linear infinite;
 `;

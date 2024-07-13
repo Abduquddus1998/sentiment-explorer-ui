@@ -1,3 +1,6 @@
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 import {
   FormSubTitle,
   InputWrapper,
@@ -6,11 +9,12 @@ import {
   SubmitButton,
   FormTitle,
   ErrorMessage,
+  Spinner,
 } from "./LoginStyles";
 import { EmailIcon, LockIcon } from "./Icons";
-import { useNavigate } from "react-router-dom";
+
 import { useRegister } from "../hooks/auth";
-import { useState } from "react";
+
 import { saveCredentials } from "../utils/auth";
 
 export default function Register() {
@@ -82,7 +86,7 @@ export default function Register() {
         </InputWrapper>
         {error && <ErrorMessage>{error}</ErrorMessage>}
         <SubmitButton isLogin={true} marginTop="30px" onClick={onRegister}>
-          Create account
+          {mutation.isPending ? <Spinner /> : <>Create account</>}
         </SubmitButton>
       </LoginForm>
     </LoginWrapper>
