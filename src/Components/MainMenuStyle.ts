@@ -19,7 +19,7 @@ export const MenuHeader = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border: 2px solid ${(props) => props.theme.menuHeaderBgColor};
+  border: 1px solid ${(props) => props.theme.menuHeaderBgColor};
   color: ${(props) => props.theme.mainTextColor};
   padding: 0.5rem 0.8rem;
   border-radius: 10px;

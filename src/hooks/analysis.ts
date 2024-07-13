@@ -1,5 +1,5 @@
 import baseApi from "../api/base-api";
-import { useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 
 export interface HistoryItem {
   corpus: string;
@@ -47,16 +47,11 @@ interface AnalysisInfoResponse {
   error: {
     message: string;
   };
-  data: {
-    corpus: string;
-    corpus_id: string;
-    sentiment: string;
-    prob: number;
-    pii_labels: PiiLabels[];
-    ner_labels: PiiLabels[];
-    pos_labels: PiiLabels[];
-    key_phrases: KeyPhrases[];
-  };
+  data: SentimentResponse;
+}
+
+interface SentimentParams {
+  corpus: string;
 }
 
 export async function getAnalysisHistory(): Promise<AnalysisHistoryResponse> {
@@ -82,4 +77,15 @@ export const useAnalysisInfo = (id: string) =>
       const [, corpus_id] = queryKey;
       return getAnalysisInfo({ corpus_id });
     },
+  });
+
+export async function generateSentimentInfo(
+  params: SentimentParams
+): Promise<AnalysisInfoResponse> {
+  return await baseApi.request("/analysis/sentiment", "post", params, true);
+}
+
+export const useSentimentGenerator = () =>
+  useMutation({
+    mutationFn: generateSentimentInfo,
   });

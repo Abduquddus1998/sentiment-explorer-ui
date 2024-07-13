@@ -39,7 +39,6 @@ export default function SentimentAnalysis() {
 
   const {
     corpus,
-    corpus_id,
     prob,
     sentiment,
     pii_labels,
@@ -54,7 +53,6 @@ export default function SentimentAnalysis() {
     return defaultData;
   }, [data, isPending]);
 
-  console.log("ner_labels", ner_labels);
   const onSelectTab = (tab: number) => {
     setCurrentTab(tab);
   };
@@ -72,7 +70,7 @@ export default function SentimentAnalysis() {
       {currentTab === 0 && (
         <Table<{ sentiment: string; prob: number }>
           columns={["sentiment", "prob"]}
-          rows={[{ sentiment, prob: Number((prob * 100).toFixed(2)) }]}
+          rows={[{ sentiment, prob: Number(prob) }]}
         />
       )}
 

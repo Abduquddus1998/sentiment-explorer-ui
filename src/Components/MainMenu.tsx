@@ -22,7 +22,7 @@ export default function MainMenu() {
 
   return (
     <MenuContainer>
-      <MenuHeader>
+      <MenuHeader onClick={() => navigate(`/main`)}>
         <div>Create new tab</div>
         <CreateAnalysis />
       </MenuHeader>
