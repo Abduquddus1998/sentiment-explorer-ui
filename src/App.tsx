@@ -10,6 +10,7 @@ import { darkTheme, lightTheme } from "./theme";
 import Register from "./Components/Register";
 import Dashboard from "./Containers/Dashboard";
 import Main from "./Components/Main";
+import SentimentAnalysis from "./Components/SentimentAnalysis";
 
 function App() {
   const [theme, setTheme] = useState("dark");
@@ -25,6 +26,8 @@ function App() {
           </Route>
           <Route path="/main" element={<Dashboard />}>
             <Route index element={<Main />} />
+
+            <Route path="/main/analysis/:id" element={<SentimentAnalysis />} />
           </Route>
         </Routes>
       </RootWrapper>

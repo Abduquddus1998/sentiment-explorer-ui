@@ -17,4 +17,7 @@ export const darkTheme: DefaultTheme = {
   menuBgColor: "#3B3B3B",
   menuItemBgColor: "#2B2B2B",
   menuHeaderBgColor: "#a259ff",
+  activeMenuBorderColor: "#a259ff",
+  tabBorderColor: "#858584",
+  tabActiveBorderColor: "#a259ff",
 };

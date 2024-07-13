@@ -35,29 +35,41 @@ export const MenuItemList = styled.ul`
   padding: 0;
   margin-top: 2rem;
   list-style-type: none;
+`;
 
-  li {
-    display: flex;
-    align-items: center;
-    border: none;
-    color: ${(props) => props.theme.mainTextColor};
-    border-radius: 10px;
-    cursor: pointer;
-    padding: 0.5rem 0.8rem;
-    background-color: ${(props) => props.theme.menuItemBgColor};
-    margin-bottom: 0.5rem;
-    height: 25px;
-    max-width: 273px;
+export const MenuItem = styled.li<{ isActive?: boolean }>`
+  display: flex;
+  align-items: center;
+  border: 1px solid
+    ${(props) =>
+      props.isActive
+        ? props.theme.activeMenuBorderColor
+        : props.theme.menuItemBgColor};
+  color: ${(props) => props.theme.mainTextColor};
+  border-radius: 10px;
+  cursor: pointer;
+  padding: 0.5rem 0.8rem;
+  background-color: ${(props) => props.theme.menuItemBgColor};
+  margin-bottom: 0.5rem;
+  height: 25px;
+  max-width: 273px;
+  transition: all 0.5s ease-out;
 
-    div {
-      text-overflow: ellipsis;
-      overflow: hidden;
-      white-space: nowrap;
-      max-width: 270px;
-    }
-
-    &:last-child {
-      margin-bottom: 3rem;
-    }
+  div {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    max-width: 270px;
   }
+
+  &:last-child {
+    margin-bottom: 3rem;
+  }
+`;
+
+export const MainPageWrapper = styled.div`
+  margin-left: 335px;
+  width: 100%;
+  color: ${(props) => props.theme.mainTextColor};
+  padding: 2rem;
 `;

@@ -27,6 +27,7 @@ export const GlobalStyles = createGlobalStyle`
       margin:0;
       min-height: 100vh;
       min-width: 100vw;
+      overflow-x: hidden;
   }
 `;
 

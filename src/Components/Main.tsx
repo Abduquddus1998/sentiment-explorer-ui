@@ -1,3 +1,5 @@
+import { MainPageWrapper } from "./MainMenuStyle";
+
 export default function Main() {
   return (
     <div>
