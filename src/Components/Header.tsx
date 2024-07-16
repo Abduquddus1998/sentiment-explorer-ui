@@ -22,21 +22,32 @@ export default function Header() {
     return () => {
       document.removeEventListener("mousedown", handleClick);
     };
-  }, []);
+  }, [menuRef]);
 
-  const onLogout = () => {};
+  const onLogout = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("isActive");
+    localStorage.removeItem("email");
+
+    navigate("/");
+  };
+
+  const onNavigate = (path: string) => {
+    navigate(path);
+    setIsOpen(false);
+  };
 
   return (
     <HeaderContainer>
-      <UserAvatar onClick={() => setIsOpen(true)} ref={menuRef}>
+      <UserAvatar onClick={() => setIsOpen(true)}>
         {email?.slice(0, 2).toUpperCase()}
       </UserAvatar>
 
       {isOpen && (
-        <ProfileMenu>
-          <div>Profile</div>
-          <div>Settings</div>
-          <div>Logout</div>
+        <ProfileMenu ref={menuRef}>
+          <div onClick={() => onNavigate("/main/profile")}>Profile</div>
+          <div onClick={() => onNavigate("/main/settings")}>Settings</div>
+          <div onClick={onLogout}>Logout</div>
         </ProfileMenu>
       )}
     </HeaderContainer>

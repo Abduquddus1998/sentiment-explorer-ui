@@ -4,13 +4,15 @@ import { Route, Routes } from "react-router-dom";
 
 import Simple from "./Containers/Simple";
 import Login from "./Components/Login";
-
-import { GlobalStyles, RootWrapper } from "./globalStyles";
-import { darkTheme, lightTheme } from "./theme";
 import Register from "./Components/Register";
 import Dashboard from "./Containers/Dashboard";
 import Main from "./Components/Main";
 import SentimentAnalysis from "./Components/SentimentAnalysis";
+import Settings from "./Components/Settings";
+import Profile from "./Components/Profile";
+
+import { GlobalStyles, RootWrapper } from "./globalStyles";
+import { darkTheme, lightTheme } from "./theme";
 
 function App() {
   const [theme, setTheme] = useState("dark");
@@ -28,6 +30,9 @@ function App() {
             <Route index element={<Main />} />
 
             <Route path="/main/analysis/:id" element={<SentimentAnalysis />} />
+
+            <Route path="/main/settings" element={<Settings />} />
+            <Route path="/main/profile" element={<Profile />} />
           </Route>
         </Routes>
       </RootWrapper>
