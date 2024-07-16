@@ -68,8 +68,79 @@ export const MenuItem = styled.li<{ isActive?: boolean }>`
 `;
 
 export const MainPageWrapper = styled.div`
-  margin-left: 335px;
+  margin-left: 332px;
   width: 100%;
   color: ${(props) => props.theme.mainTextColor};
-  padding: 2rem;
+  position: relative;
+`;
+
+export const PageContainer = styled.div`
+  padding: 5rem 2rem 2rem 2rem;
+`;
+
+export const HeaderContainer = styled.div`
+  position: fixed;
+  width: calc(100% - 396px);
+  max-width: calc(100% - 396px);
+  height: 55px;
+  background-color: ${(props) => props.theme.menuBgColor};
+  z-index: 3;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0 2rem;
+  -webkit-box-shadow: 6px 7px 5px 0 rgb(36 36 36);
+  -moz-box-shadow: 6px 7px 5px 0 rgb(36 36 36);
+  box-shadow: 6px 7px 5px 0 rgb(36 36 36);
+`;
+
+export const UserAvatar = styled.div`
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgb(28 188 157);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 400;
+`;
+
+export const ProfileMenu = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 70px;
+  background-color: ${(props) => props.theme.menuBgColor};
+  position: absolute;
+  z-index: 4;
+  top: 60px;
+  padding: 1rem;
+  border-radius: 10px;
+  -webkit-box-shadow: -1px 4px 5px 1px rgb(36 36 36);
+  -moz-box-shadow: -1px 4px 5px 1px rgb(36 36 36);
+  box-shadow: -1px 4px 5px 1px rgb(36 36 36);
+
+  &:after {
+    position: absolute;
+    top: -8px;
+    right: 13px;
+    width: 0;
+    height: 0;
+    content: "";
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid ${(props) => props.theme.menuBgColor};
+  }
+
+  div {
+    margin-bottom: 0.5rem;
+    font-size: 16px;
+    font-weight: 400;
+    cursor: pointer;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
 `;

@@ -2,7 +2,8 @@ import { useEffect } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
 import MainMenu from "../Components/MainMenu";
 import { DashboardLayout } from "./ContainerStyles";
-import { MainPageWrapper } from "../Components/MainMenuStyle";
+import { MainPageWrapper, PageContainer } from "../Components/MainMenuStyle";
+import Header from "../Components/Header";
 
 export default function Dashboard() {
   const navigate = useNavigate();
@@ -17,8 +18,13 @@ export default function Dashboard() {
   return (
     <DashboardLayout>
       <MainMenu />
+
       <MainPageWrapper>
-        <Outlet />
+        <Header />
+
+        <PageContainer>
+          <Outlet />
+        </PageContainer>
       </MainPageWrapper>
     </DashboardLayout>
   );

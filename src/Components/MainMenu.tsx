@@ -1,4 +1,4 @@
-import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 import {
   MenuContainer,
@@ -12,7 +12,6 @@ import { HistoryItem, useHistory } from "../hooks/analysis";
 
 export default function MainMenu() {
   const navigate = useNavigate();
-  const location = useLocation();
   const { id } = useParams<{ id: string | undefined }>();
 
   const { isPending, isError, data } = useHistory();
@@ -21,18 +20,9 @@ export default function MainMenu() {
     navigate(`/main/analysis/${history.corpus_id}`);
   };
 
-  const onNavigateMain = () => {
-    if (location.pathname === "/main") {
-      window.location.href = "/main";
-      return;
-    }
-
-    navigate(`/main`);
-  };
-
   return (
     <MenuContainer>
-      <MenuHeader onClick={onNavigateMain}>
+      <MenuHeader onClick={() => navigate(`/main`)}>
         <div>Create new tab</div>
         <CreateAnalysis />
       </MenuHeader>
